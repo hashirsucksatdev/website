@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>hashir</title>
+  <link rel="shortcut icon" type="image/png" href="https://win98icons.alexmeub.com/icons/png/html2-5.png">
+  <link rel="shortcut icon" type="image/png" href="https://win98icons.alexmeub.com/icons/png/html2-5.png">
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://unpkg.com/98.css" />
+  <style>
+    .animated-block {
+      display: inline-block;
+      padding: 4px;
+      font-family: monospace;
+      animation: fadeIn 0.2s ease-in-out, rainbow 5s infinite linear;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes rainbow {
+      0% {
+        background-color: red;
+        color: white;
+      }
+
+      14% {
+        background-color: orange;
+        color: black;
+      }
+
+      28% {
+        background-color: yellow;
+        color: black;
+      }
+
+      42% {
+        background-color: green;
+        color: white;
+      }
+
+      57% {
+        background-color: blue;
+        color: white;
+      }
+
+      71% {
+        background-color: indigo;
+        color: white;
+      }
+
+      85% {
+        background-color: violet;
+        color: white;
+      }
+
+      100% {
+        background-color: red;
+        color: white;
+      }
+    }
+
+    .window-body {
+      cursor: move;
+    }
+
+    .window {
+      position: relative;
+    }
+
+    #progressBarContainer {
+      margin: 32px;
+    }
+
+    #progressBar {
+      display: flex;
+      height: 100%;
+      background-color: transparent;
+      width: 170px;
+      /* Adjust this value based on your desired width */
+      gap: 2px;
+      /* Adjust this value to control the spacing between boxes */
+    }
+
+    .progress-box {
+      width: 8px;
+      height: 12px;
+      background-color: transparent;
+      animation: progress-animation 0s ease-in-out forwards;
+    }
+
+    @keyframes progress-animation {
+      0% {
+        background-color: #c0c0c0;
+      }
+
+      100% {
+        background-color: #000099;
+      }
+    }
+  </style>
+</head>
+
+<body style="background: #dfdfdf;">
+  <div id="progressBarContainer">
+    <div>
+      <div class="window" id="progressBar">
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sunken-panel" style="margin: 32px; height: 120px; width: 286px; display: none">
+    <div class="title-bar">
+      <div class="title-bar-text">Navigate</div>
+    </div>
+    <table class="interactive">
+      <thead class="height: 120px;">
+        <tr>
+          <th>Path</th>
+          <th>File Format</th>
+          <th>Last Updated</th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr onclick="location.href = '../index.html';">
+          <td>/index.html</td>
+          <td>HTML5</td>
+          <td>October 6th, 1998</td>
+          <td>-</td>
+        </tr>
+        <tr onclick="location.href = '../projects.html';" class="highlighted">
+          <td>/projects.html</td>
+          <td>HTML5</td>
+          <td>October 6th, 1998</td>
+          <td>-</td>
+        </tr>
+        <tr onclick="location.href = '../about.html';">
+          <td>/about.html</td>
+          <td>HTML5</td>
+          <td>September 20th, 1998</td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="window" style="margin: 32px; width: 320px; display: none" id="mainWindow">
+    <div class="title-bar">
+      <div class="title-bar-text" id="cardTitle">Projects</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" id="minimizeButton"></button>
+        <button aria-label="Maximize" id="maximizeButton"></button>
+      </div>
+    </div>
+    <div class="window-body">
+      <p id="mainContent">Over the last few years, I've worked on a lot of projects but here are the main ones:</p>
+      <ul class="tree-view">
+        <li>
+          Open source projects
+          <ul>
+            <li>Impreessing Crush (hashirsucksatdev/website/impressingcrush)</li>
+            <li>WHCMS FOR DISCORD (hashirsucksatdev/whcms-for-discord)</li>
+            <li>& lots more...</li>
+          </ul>
+        </li>
+        <li>
+          
+        </li>
+      </ul>
+      <section class="field-row" style="justify-content: flex-end">
+        <button id="okButton">OK</button>
+        <button aria-label="Close">Cancel</button>
+      </section>
+    </div>
+    <div id="statusBar" class="status-bar">
+      <p class="status-bar-field">Press F1 for help</p>
+      <p class="status-bar-field"></p>
+      <p class="status-bar-field" id="ipAddress"></p>
+    </div>
+  </div>
+  <script>
+    // Wait for the page to load before animating the progress bar
+    window.addEventListener('load', () => {
+      const progressBoxes = document.querySelectorAll('.progress-box');
+      let animationDelay = 0;
+
+      progressBoxes.forEach((box) => {
+        box.style.animationDelay = `${animationDelay}s`;
+        animationDelay += 0.1; // Adjust the delay between each box (e.g., 0.3s)
+      });
+
+      // Show the main content after the progress bar animation is complete
+      setTimeout(() => {
+        const progressBarContainer = document.getElementById('progressBarContainer');
+        progressBarContainer.style.display = 'none';
+
+        const sunkenPanel = document.querySelector('.sunken-panel');
+        sunkenPanel.style.display = 'block';
+
+        const mainWindow = document.getElementById('mainWindow');
+        mainWindow.style.display = 'block';
+      }, 3000); // Wait for 3 seconds (the duration of the progress bar animation)
+    });
+    // Get the user's IP address using the ipify.org API
+    fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        const ipAddressElement = document.getElementById('ipAddress');
+        ipAddressElement.textContent = 'IPv4: ' + data.ip;
+      })
+      .catch(error => {
+        console.error('Error fetching IP address:', error);
+      });
+
+    // Handle the "Cancel" button click
+    const closeButton = document.querySelector('button[aria-label="Close"]');
+    const windowBody = document.querySelector('.window-body');
+    closeButton.addEventListener('click', () => {
+      // Clear the existing content
+      windowBody.innerHTML = '';
+
+      // Create a string with the desired text
+      const animatedText = 'POLARIS18002738255';
+
+      // Split the string into individual characters
+      const chars = animatedText.split('');
+
+      // Animate the text by displaying one character at a time
+      let animationInterval = setInterval(() => {
+        if (chars.length === 0) {
+          clearInterval(animationInterval);
+          return;
+        }
+        const char = chars.shift();
+        const animatedBlock = document.createElement('span');
+        animatedBlock.classList.add('animated-block');
+        animatedBlock.textContent = char;
+        windowBody.appendChild(animatedBlock);
+      }, 50); // Adjust this value to control the animation speed
+    });
+
+    // Handle the "OK" button click
+    const okButton = document.getElementById('okButton');
+    okButton.addEventListener('click', () => {
+      const cardTitle = document.getElementById('cardTitle');
+      cardTitle.textContent = 'Operation completed!';
+
+      const mainContent = document.getElementById('mainContent');
+      mainContent.textContent = 'Nothing left to do. All file operations are complete!';
+
+      const ul = document.querySelector('ul');
+      ul.remove();
+
+      const section = document.querySelector('section');
+      section.remove();
+    });
+
+    // Handle the minimize button click
+    const minimizeButton = document.getElementById('minimizeButton');
+    const mainWindow = document.getElementById('mainWindow');
+    minimizeButton.addEventListener('click', () => {
+      mainWindow.style.display = 'none';
+    });
+
+    // Handle the maximize button click
+    const maximizeButton = document.getElementById('maximizeButton');
+    let isMaximized = false;
+    let originalWidth, originalHeight;
+
+    maximizeButton.addEventListener('click', () => {
+      const statusbar = document.getElementById('statusBar');
+      if (!isMaximized) {
+        originalWidth = mainWindow.style.width;
+        originalHeight = mainWindow.style.height;
+        mainWindow.style.width = '50vw';
+        mainWindow.style.height = '30vh';
+        isMaximized = true;
+        statusbar.style.display = 'none';
+      } else {
+        mainWindow.style.width = originalWidth;
+        mainWindow.style.height = originalHeight;
+        isMaximized = false;
+      }
+    });
+
+    let isWindowDragging = false;
+    let currentX;
+    let currentY;
+    let initialX;
+    let initialY;
+    let xOffset = 0;
+    let yOffset = 0;
+
+    windowBody.addEventListener('mousedown', dragStart);
+    windowBody.addEventListener('mouseup', dragEnd);
+    windowBody.addEventListener('mousemove', drag);
+
+    function dragStart(e) {
+      initialX = e.clientX - xOffset;
+      initialY = e.clientY - yOffset;
+
+      let target = e.target;
+      while (target !== null && target !== windowBody) {
+        target = target.parentElement;
+      }
+
+      if (target === windowBody) {
+        isWindowDragging = true;
+      }
+    }
+
+    function dragEnd(e) {
+      isWindowDragging = false;
+      xOffset = 0;
+      yOffset = 0;
+    }
+
+    function drag(e) {
+      if (isWindowDragging) {
+        e.preventDefault();
+
+        currentX = e.clientX - initialX;
+        currentY = e.clientY - initialY;
+
+        xOffset = currentX;
+        yOffset = currentY;
+
+        setTranslate(currentX, currentY, mainWindow);
+      }
+    }
+
+    function setTranslate(xPos, yPos, el) {
+      el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+    }
+  </script>
+  <div class="footerWrap">
+    <div class="footer">
+      <div class="footerContent">
+        <p>&copy; Snezzy (Hashir) ― css by <a href="https://jdan.github.io/98.css/">98.css</a></p>
+      </div>
+    </div>
+  </div>
+  <style>
+    .footerWrap {
+      width: 100%;
+      position: fixed;
+      bottom: 0px;
+    }
+
+    .footer {
+      width: 400px;
+      margin: auto;
+    }
+
+    .footerContent {
+      float: left;
+      width: 100%;
+      padding: 20px 0;
+    }
+
+    .footer p {
+      float: left;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+</body>
+
+</html>
