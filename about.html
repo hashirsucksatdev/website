@@ -1,0 +1,385 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>hashir</title>
+  <link rel="shortcut icon" type="image/png" href="https://win98icons.alexmeub.com/icons/png/html2-5.png">
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://unpkg.com/98.css" />
+  <style>
+    .animated-block {
+      display: inline-block;
+      padding: 4px;
+      font-family: monospace;
+      animation: fadeIn 0.2s ease-in-out, rainbow 5s infinite linear;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes rainbow {
+      0% {
+        background-color: red;
+        color: white;
+      }
+
+      14% {
+        background-color: orange;
+        color: black;
+      }
+
+      28% {
+        background-color: yellow;
+        color: black;
+      }
+
+      42% {
+        background-color: green;
+        color: white;
+      }
+
+      57% {
+        background-color: blue;
+        color: white;
+      }
+
+      71% {
+        background-color: indigo;
+        color: white;
+      }
+
+      85% {
+        background-color: violet;
+        color: white;
+      }
+
+      100% {
+        background-color: red;
+        color: white;
+      }
+    }
+
+    .window-body {
+      cursor: move;
+    }
+
+    .window {
+      position: relative;
+    }
+
+    #progressBarContainer {
+      margin: 32px;
+    }
+
+    #progressBar {
+      display: flex;
+      height: 100%;
+      background-color: transparent;
+      width: 170px;
+      /* Adjust this value based on your desired width */
+      gap: 2px;
+      /* Adjust this value to control the spacing between boxes */
+    }
+
+    .progress-box {
+      width: 8px;
+      height: 12px;
+      background-color: transparent;
+      animation: progress-animation 0s ease-in-out forwards;
+    }
+
+    @keyframes progress-animation {
+      0% {
+        background-color: #c0c0c0;
+      }
+
+      100% {
+        background-color: #000099;
+      }
+    }
+  </style>
+</head>
+
+<body style="background: #dfdfdf;">
+  <div id="progressBarContainer">
+    <div>
+      <div class="window" id="progressBar">
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+        <div class="progress-box"></div>
+      </div>
+    </div>
+  </div>
+  <div class="sunken-panel" style="margin: 32px; height: 120px; width: 286px; display: none">
+    <div class="title-bar">
+      <div class="title-bar-text">Navigate</div>
+    </div>
+    <table class="interactive">
+      <thead class="height: 120px;">
+        <tr>
+          <th>Path</th>
+          <th>File Format</th>
+          <th>Last Updated</th>
+          <th>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr onclick="location.href = '../index.html';">
+          <td>/index.html</td>
+          <td>HTML5</td>
+          <td>October 6th, 1998</td>
+          <td>-</td>
+        </tr>
+        <tr onclick="location.href = '../projects.html';">
+          <td>/projects.html</td>
+          <td>HTML5</td>
+          <td>October 6th, 1998</td>
+          <td>-</td>
+        </tr>
+        <tr onclick="location.href = '../about.html';" class="highlighted">
+          <td>/about.html</td>
+          <td>HTML5</td>
+          <td>September 20th, 1998</td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="window" style="margin: 32px; width: 320px; display: none" id="mainWindow">
+    <div class="title-bar">
+      <div class="title-bar-text" id="cardTitle">About</div>
+      <div class="title-bar-controls">
+        <button aria-label="Minimize" id="minimizeButton"></button>
+        <button aria-label="Maximize" id="maximizeButton"></button>
+      </div>
+    </div>
+    <div class="window-body">
+      <ul>
+        <li>
+            <img src="https://win98icons.alexmeub.com/icons/png/tree-0.png" alt="Tree icon" style="width: 12px; height: 12px; margin-top: 4px; margin-right: 4px;">
+            <span>Hashir</span>
+        </li>
+        <li>
+            <img src="https://win98icons.alexmeub.com/icons/png/world-4.png" alt="World icon" style="width: 12px; height: 12px; margin-top: 4px; margin-right: 4px;">
+            <span>Nottingham, US</span>
+        </li>
+        <li>
+            <img src="https://win98icons.alexmeub.com/icons/png/computer_explorer_2k-0.png" alt="Computer icon" style="width: 12px; height: 12px; margin-top: 4px; margin-right: 4px;">
+            <span>ASUS ZenBook 14 (UM433IQ)</span>
+        </li>
+        <li>
+            <img src="https://win98icons.alexmeub.com/icons/png/msie2-2.png" alt="IE icon" style="width: 12px; height: 12px; margin-top: 4px; margin-right: 4px;">
+            <span>atqr.pages.dev / github.com/atqr1</span>
+        </li>
+      </ul>
+      <section class="field-row" style="justify-content: flex-end">
+        <button id="okButton">OK</button>
+        <button aria-label="Close">Cancel</button>
+      </section>
+    </div>
+    <div id="statusBar" class="status-bar">
+      <p class="status-bar-field">Press F1 for help</p>
+      <p class="status-bar-field">atqr.pages.dev</p>
+      <p class="status-bar-field" id="ipAddress"></p>
+    </div>
+  </div>
+  <script>
+    // Wait for the page to load before animating the progress bar
+    window.addEventListener('load', () => {
+      const progressBoxes = document.querySelectorAll('.progress-box');
+      let animationDelay = 0;
+
+      progressBoxes.forEach((box) => {
+        box.style.animationDelay = `${animationDelay}s`;
+        animationDelay += 0.1; // Adjust the delay between each box (e.g., 0.3s)
+      });
+
+      // Show the main content after the progress bar animation is complete
+      setTimeout(() => {
+        const progressBarContainer = document.getElementById('progressBarContainer');
+        progressBarContainer.style.display = 'none';
+
+        const sunkenPanel = document.querySelector('.sunken-panel');
+        sunkenPanel.style.display = 'block';
+
+        const mainWindow = document.getElementById('mainWindow');
+        mainWindow.style.display = 'block';
+      }, 3000); // Wait for 3 seconds (the duration of the progress bar animation)
+    });
+    // Get the user's IP address using the ipify.org API
+    fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        const ipAddressElement = document.getElementById('ipAddress');
+        ipAddressElement.textContent = 'IPv4: ' + data.ip;
+      })
+      .catch(error => {
+        console.error('Error fetching IP address:', error);
+      });
+
+    // Handle the "Cancel" button click
+    const closeButton = document.querySelector('button[aria-label="Close"]');
+    const windowBody = document.querySelector('.window-body');
+    closeButton.addEventListener('click', () => {
+      // Clear the existing content
+      windowBody.innerHTML = '';
+
+      // Create a string with the desired text
+      const animatedText = `
+function _0x3027(_0x6b7a7b,_0x2befb8){var _0x10f267=_0x10f2();return _0x3027=function(_0x302775,_0x18af5f){_0x302775=_0x302775-0xd1;var _0x32fb4e=_0x10f267[_0x302775];return _0x32fb4e;},_0x3027(_0x6b7a7b,_0x2befb8);}(function(_0x55aabb,_0x4c4fd9){var _0x3a835b=_0x3027,_0x57f08c=_0x55aabb();while(!![]){try{var _0xa3fa68=-parseInt(_0x3a835b(0xd4))/0x1*(-parseInt(_0x3a835b(0xd8))/0x2)+-parseInt(_0x3a835b(0xd2))/0x3*(-parseInt(_0x3a835b(0xd7))/0x4)+-parseInt(_0x3a835b(0xdc))/0x5+-parseInt(_0x3a835b(0xd9))/0x6+-parseInt(_0x3a835b(0xd6))/0x7+parseInt(_0x3a835b(0xda))/0x8*(-parseInt(_0x3a835b(0xd3))/0x9)+parseInt(_0x3a835b(0xd5))/0xa;if(_0xa3fa68===_0x4c4fd9)break;else _0x57f08c['push'](_0x57f08c['shift']());}catch(_0x1cc9db){_0x57f08c['push'](_0x57f08c['shift']());}}}(_0x10f2,0x4b0c4));function x(){var _0x58495e=_0x3027;console[_0x58495e(0xd1)](_0x58495e(0xdb));}x();function _0x10f2(){var _0x3f031e=['1655647mCXCVa','4dYGHNH','60BfbLkB','1353972SWYtiD','88Jnmpcc','SWYgYWxsIEkgaGVhciBpcyBtZSwgdGhlbiB3aG8gc2hvdWxkIEkgYmUgYWZyYWlkIG9m','1166965HcDrbs','log','442785fByfTn','211887jBmWUR','17989xQFrtK','5746800jhIeqZ'];_0x10f2=function(){return _0x3f031e;};return _0x10f2();}
+`;
+        const animatedBlock = document.createElement('code');
+        animatedBlock.textContent = animatedText;
+        windowBody.appendChild(animatedBlock);
+    });
+
+    // Handle the "OK" button click
+    const okButton = document.getElementById('okButton');
+    okButton.addEventListener('click', () => {
+      const cardTitle = document.getElementById('cardTitle');
+      cardTitle.textContent = 'Operation completed!';
+
+      const ul = document.querySelector('ul');
+      ul.remove();
+
+      const section = document.querySelector('section');
+      section.remove();
+    });
+
+    // Handle the minimize button click
+    const minimizeButton = document.getElementById('minimizeButton');
+    const mainWindow = document.getElementById('mainWindow');
+    minimizeButton.addEventListener('click', () => {
+      mainWindow.style.display = 'none';
+    });
+
+    // Handle the maximize button click
+    const maximizeButton = document.getElementById('maximizeButton');
+    let isMaximized = false;
+    let originalWidth, originalHeight;
+
+    maximizeButton.addEventListener('click', () => {
+      const statusbar = document.getElementById('statusBar');
+      if (!isMaximized) {
+        originalWidth = mainWindow.style.width;
+        originalHeight = mainWindow.style.height;
+        mainWindow.style.width = '50vw';
+        mainWindow.style.height = '30vh';
+        isMaximized = true;
+        statusbar.style.display = 'none';
+      } else {
+        mainWindow.style.width = originalWidth;
+        mainWindow.style.height = originalHeight;
+        isMaximized = false;
+      }
+    });
+
+    let isWindowDragging = false;
+    let currentX;
+    let currentY;
+    let initialX;
+    let initialY;
+    let xOffset = 0;
+    let yOffset = 0;
+
+    windowBody.addEventListener('mousedown', dragStart);
+    windowBody.addEventListener('mouseup', dragEnd);
+    windowBody.addEventListener('mousemove', drag);
+
+    function dragStart(e) {
+      initialX = e.clientX - xOffset;
+      initialY = e.clientY - yOffset;
+
+      let target = e.target;
+      while (target !== null && target !== windowBody) {
+        target = target.parentElement;
+      }
+
+      if (target === windowBody) {
+        isWindowDragging = true;
+      }
+    }
+
+    function dragEnd(e) {
+      isWindowDragging = false;
+      xOffset = 0;
+      yOffset = 0;
+    }
+
+    function drag(e) {
+      if (isWindowDragging) {
+        e.preventDefault();
+
+        currentX = e.clientX - initialX;
+        currentY = e.clientY - initialY;
+
+        xOffset = currentX;
+        yOffset = currentY;
+
+        setTranslate(currentX, currentY, mainWindow);
+      }
+    }
+
+    function setTranslate(xPos, yPos, el) {
+      el.style.transform = `translate3d(${xPos}px, ${yPos}px, 0)`;
+    }
+  </script>
+  <div class="footerWrap">
+    <div class="footer">
+      <div class="footerContent">
+        <p>&copy; Atqr (Matt J) ― css by <a href="https://jdan.github.io/98.css/">98.css</a></p>
+      </div>
+    </div>
+  </div>
+  <style>
+    .footerWrap {
+      width: 100%;
+      position: fixed;
+      bottom: 0px;
+    }
+
+    .footer {
+      width: 400px;
+      margin: auto;
+    }
+
+    .footerContent {
+      float: left;
+      width: 100%;
+      padding: 20px 0;
+    }
+
+    .footer p {
+      float: left;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+</body>
+
+</html>
