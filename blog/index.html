@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Snezzy</title>
+    <link rel="stylesheet" href="/assets/built/screen.css?v=af2c15f98b">
+
+            <link rel="preload" as="image" href="https://ether-1.ghost.io/content/images/2025/03/publication-cover.jpg">
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast was taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <meta name="description" content="something">
+    <link rel="canonical" href="https://website-eight-kappa-21.vercel.app/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    
+    
+    
+
+    <meta name="generator" content="Ghost 5.110">
+    <link rel="alternate" type="application/rss+xml" title="hashir" href="https://website-eight-kappa-21.vercel.app//rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.50/umd/portal.min.js" data-i18n="true" data-ghost="https://website-eight-kappa-21.vercel.app/" data-key="5beab7a629dfc49fc0d2c106f7" data-api="" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.5/umd/sodo-search.min.js" data-key="5beab7a629dfc49fc0d2c106f7" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.5/umd/main.css" data-sodo-search="https://ether-1.ghost.io/" data-locale="en" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/ghost/announcement-bar@~1.1/umd/announcement-bar.min.js" data-announcement-bar="https://ether-1.ghost.io/" data-api-url="https://ether-1.ghost.io/members/api/announcement/" crossorigin="anonymous"></script>
+    <link href="https://ether-1.ghost.io/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=af2c15f98b"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=af2c15f98b">
+    <script defer src="/public/member-attribution.min.js?v=af2c15f98b"></script><style>:root {--ghost-accent-color: #000000;}</style>
+</head>
+
+<body class="home-template is-head-transparent has-background-about is-head-left-logo has-typographic-feed">
+<div class="gh-site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner gh-inner">
+            <div class="gh-head-brand">
+                <div class="gh-head-brand-wrapper">
+                    <a class="gh-head-logo" href="https://website-eight-kappa-21.vercel.app/">
+                            hashir
+                    </a>
+                </div>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.5 17.5L12.5 12.5L17.5 17.5ZM14.1667 8.33333C14.1667 9.09938 14.0158 9.85792 13.7226 10.5657C13.4295 11.2734 12.9998 11.9164 12.4581 12.4581C11.9164 12.9998 11.2734 13.4295 10.5657 13.7226C9.85792 14.0158 9.09938 14.1667 8.33333 14.1667C7.56729 14.1667 6.80875 14.0158 6.10101 13.7226C5.39328 13.4295 4.75022 12.9998 4.20854 12.4581C3.66687 11.9164 3.23719 11.2734 2.94404 10.5657C2.65088 9.85792 2.5 9.09938 2.5 8.33333C2.5 6.78624 3.11458 5.30251 4.20854 4.20854C5.30251 3.11458 6.78624 2.5 8.33333 2.5C9.88043 2.5 11.3642 3.11458 12.4581 4.20854C13.5521 5.30251 14.1667 6.78624 14.1667 8.33333Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home nav-current"><a href="https://website-eight-kappa-21.vercel.app/">Home</a></li>
+    <li class="nav-x"><a href="https://github.com/hashirsucksatdev">Github</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.5 17.5L12.5 12.5L17.5 17.5ZM14.1667 8.33333C14.1667 9.09938 14.0158 9.85792 13.7226 10.5657C13.4295 11.2734 12.9998 11.9164 12.4581 12.4581C11.9164 12.9998 11.2734 13.4295 10.5657 13.7226C9.85792 14.0158 9.09938 14.1667 8.33333 14.1667C7.56729 14.1667 6.80875 14.0158 6.10101 13.7226C5.39328 13.4295 4.75022 12.9998 4.20854 12.4581C3.66687 11.9164 3.23719 11.2734 2.94404 10.5657C2.65088 9.85792 2.5 9.09938 2.5 8.33333C2.5 6.78624 3.11458 5.30251 4.20854 4.20854C5.30251 3.11458 6.78624 2.5 8.33333 2.5C9.88043 2.5 11.3642 3.11458 12.4581 4.20854C13.5521 5.30251 14.1667 6.78624 14.1667 8.33333Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</button>
+                    <div class="gh-head-members">
+                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    
+<section class="gh-about gh-outer">
+    <div class="gh-about-inner gh-inner">
+                <img class="gh-about-image" src="https://website-eight-kappa-21.vercel.app/images/2025/03/publication-cover.jpg" alt="Ether">
+        <script>
+            (function () {
+                if (!document.body.classList.contains('has-background-about')) return;
+
+                const about = document.querySelector('.gh-about');
+                if (!about) return;
+
+                const image = about.querySelector('.gh-about-image');
+
+                about.style.setProperty('--about-height', image.clientWidth * image.naturalHeight / image.naturalWidth + 'px');
+                about.classList.add('initialized');
+            })();
+        </script>
+        <div class="gh-about-content">
+            <div class="gh-about-content-inner">
+                    <h1 class="gh-about-primary">Ah, hello</h1>
+                        <p class="gh-about-secondary">I write things here. That's pretty much it. You can have a look around if you'd like.</p>
+                        <div class="gh-subscribe-input" data-portal>
+                            jamie@example.com
+                            <span class="gh-btn gh-primary-btn">Subscribe</span>
+                        </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<main class="gh-main gh-outer">
+    <div class="gh-feed gh-inner">
+            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/07-03-2025-2/">
+
+
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title">Midway Atoll</h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2025-03-07">07 Mar 2025</time>
+                    <span class="gh-card-length">2 min read</span>
+            </footer>
+        </div>
+
+    </a>
+</article>            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/02-03-2025-statement-old/">
+
+
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title">02-03-2025 / Statement - Old</h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2025-03-06">06 Mar 2025</time>
+                    <span class="gh-card-length">1 min read</span>
+            </footer>
+        </div>
+
+    </a>
+</article>            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/22-02-2025-old/">
+
+
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title">22-02-2025 - Old</h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2025-03-06">06 Mar 2025</time>
+                    <span class="gh-card-length">5 min read</span>
+            </footer>
+        </div>
+
+    </a>
+</article>            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/27-02-2025-old/">
+
+
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title">27-02-2025 - Old</h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2025-03-06">06 Mar 2025</time>
+            </footer>
+        </div>
+
+    </a>
+</article>            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/01-03-2025-old/">
+
+
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title">01-03-2025 - Old</h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2025-03-06">06 Mar 2025</time>
+                    <span class="gh-card-length">3 min read</span>
+            </footer>
+        </div>
+
+    </a>
+</article>    </div>
+</main>
+
+
+
+
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+            <nav class="gh-foot-menu">
+                <ul class="nav">
+    <li class="nav-sign-up nav-current"><a href="#/portal/">Sign up</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-copyright">
+                    Site by Snezzy            
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script src="/assets/built/main.min.js?v=af2c15f98b"></script>
+
+
+
+</body>
+
+</html>
